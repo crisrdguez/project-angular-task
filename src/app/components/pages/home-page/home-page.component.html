@@ -1,7 +1,11 @@
-<h1>Home Page</h1>
 
 <!--Listado de Tareas-->
-<app-task-list></app-task-list>
+<!--<app-task-list></app-task-list>-->
 
 <!--Formulario de creación y creación de tareas-->
-<app-task-form></app-task-form>
+<!--<app-task-form></app-task-form>-->
+<button *ngIf="token" (click)="logout()">Logout</button>
+<h1>Bienvenido a la Home</h1>
+<h2>Esto solo es visible si estas logueado</h2>
+
+

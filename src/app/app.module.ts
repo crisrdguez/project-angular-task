@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskComponent } from './components/task/task.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
@@ -14,6 +15,8 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { NotFoundPagesComponent } from './components/pages/not-found-pages/not-found-pages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    //Importamos el modulo HttpClientModule para hacer peticiones HTTP
+    HttpClientModule,
+    //Importamos ReactiveModule para trabajar con formularios reactivos
+    ReactiveFormsModule,
+    MaterialModule,
     BrowserAnimationsModule
   ],
   providers: [],

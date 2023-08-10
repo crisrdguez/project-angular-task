@@ -1,0 +1,15 @@
+<p>random-user-page works!</p>
+<app-random-user [randomContact]="contact" [showRandomContact]="showRandomC"></app-random-user><!--El @Input de randomcontact [randomContact] lo igualo a contacto, que es el nombre que le he puesto en randomuserpage-->
+
+<!--TODO quiero que desde los botones YES NO, el yes me guarde el contacto y el No genere un contacto aleatorio-->
+<button mat-raised-button (click)="obtenerNuevoContacto()">
+    Generar Contacto Aleatorio
+</button>
+
+<button mat-raised-button (click)="obtenerListaContactos(5)">
+    Generar Contactos Aleatorios
+</button>
+
+<button mat-raised-button (click)="obtenerContactosGenero('female')">
+    Generar Contacto Aleatorio
+</button>

@@ -16,6 +16,9 @@ import { RegisterPageComponent } from './components/pages/register-page/register
 import { NotFoundPagesComponent } from './components/pages/not-found-pages/not-found-pages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
+import { RandomUserComponent } from './components/random-user/random-user.component';
+import { RandomUserPageComponent } from './components/pages/random-user-page/random-user-page.component';
+
 
 
 @NgModule({
@@ -29,8 +32,12 @@ import { MaterialModule } from './modules/material/material.module';
     NavBarComponent,
     HomePageComponent,
     LoginPageComponent,
+    LoginFormComponent,
     RegisterPageComponent,
-    NotFoundPagesComponent
+    NotFoundPagesComponent,
+    RandomUserComponent,
+    RandomUserPageComponent,
+
   ],
   imports: [
     BrowserModule,

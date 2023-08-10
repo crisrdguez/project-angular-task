@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IRandomContact, Results } from 'src/app/models/interfaces/randomuser';
 import { RandomUserService } from 'src/app/services/random-user.service';
+import { RandomUserComponent } from '../../random-user/random-user.component';
 
 @Component({
   selector: 'app-random-user-page',
@@ -13,10 +15,11 @@ export class RandomUserPageComponent implements OnInit{
 
   showRandomC:boolean=false;
 
-  constructor(private randomuserService:RandomUserService){}
+
+  constructor(private randomuserService:RandomUserService, private router:Router){}
 
   ngOnInit(): void {
-
+    
     this.randomuserService.obtenerRandomContact().subscribe((response:Results)=>{
 
       this.contact = response.results[0];//Se lo pasariamos al RandomContact
@@ -31,7 +34,9 @@ export class RandomUserPageComponent implements OnInit{
       
   }
 
-  obtenerNuevoContacto(){
+  
+
+  /*obtenerNuevoContacto(){
 
     this.randomuserService.obtenerRandomContact().subscribe({
       next:(response:Results)=>{
@@ -46,11 +51,11 @@ export class RandomUserPageComponent implements OnInit{
     
     });
 
-  }
+  }*/
 
-  obtenerListaContactos(num:number){
+  obtenerListaContactos(num:number,sexo?:string){
 
-    this.randomuserService.obtenerRandomContacts(num).subscribe({
+    this.randomuserService.obtenerRandomContacts(num,sexo).subscribe({
       next:(response:Results[])=>{
 
         console.log(response);
@@ -65,21 +70,9 @@ export class RandomUserPageComponent implements OnInit{
 
   }
 
-  obtenerContactosGenero(sexo:string){
-
-    this.randomuserService.obtenerContactGenero(sexo).subscribe({
-      next:(response:Results[])=>{
-
-        console.log(response);
-
-      },
-      error:(error:Error)=>{
-        console.error(`Error ${error}`)
-      },
-      complete:()=>{console.info("Peticion completada")}
-    
-    });
-
+  volverHome(){
+    this.router.navigate([''])
   }
+
 
 }

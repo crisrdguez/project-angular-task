@@ -1,12 +1,31 @@
-
+<!--Barra de navegacion en la home-->
+<app-nav-bar></app-nav-bar>
 <!--Listado de Tareas-->
 <!--<app-task-list></app-task-list>-->
 
 <!--Formulario de creación y creación de tareas-->
 <!--<app-task-form></app-task-form>-->
-<button *ngIf="token" (click)="logout()">Logout</button>
+<!--<button *ngIf="token" (click)="logout()">Logout</button>-->
 <h1>Bienvenido a la Home</h1>
 <h2>Esto solo es visible si estas logueado</h2>
 
-<app-random-user-page></app-random-user-page>
+<!--TODO dos opciones: Pagina de contactos y pagina de gestor de tareas a traves del nav-->
 
+<!--<app-random-user-page></app-random-user-page>-->
+
+
+  <mat-form-field class="example-form-field">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="rangePicker">
+      <input matStartDate placeholder="Start date">
+      <input matEndDate placeholder="End date">
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+    <mat-date-range-picker #rangePicker>
+      <mat-date-range-picker-actions>
+        <button mat-button color="warn" matDateRangePickerCancel>Cancelar</button>
+        <button mat-raised-button color="primary" matDateRangePickerApply>Aplicar</button>
+      </mat-date-range-picker-actions>
+    </mat-date-range-picker>
+  </mat-form-field>

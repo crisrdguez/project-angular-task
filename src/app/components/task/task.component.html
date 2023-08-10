@@ -1,7 +1,10 @@
 <!--TODO Reformular con directivas estructurales y estilos condicionales-->
-
+<app-nav-bar></app-nav-bar>
 <h5>Title: {{task?.title}}</h5>
 <h6>Description: {{task?.description}}</h6>
 
 <p>¿Completed?: {{task?.completed ? 'Completada' : 'Incompleta'}}</p>
 <button (click)="deleteTask()">Delete Task</button>
+
+<br>
+<button type="button" class="btn btn-outline-success" (click)="volverHome()">Volver a Home</button>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { retry } from 'rxjs/operators';
-import { IRandomContact, Results } from '../models/interfaces/randomuser';
+import { Results } from '../models/interfaces/randomuser';
 
 
 @Injectable({
@@ -34,9 +34,14 @@ export class RandomUserService {
 
   }
 
-  obtenerRandomContacts(num:number):Observable<Results[]>{ //para usar diferentes opciones he importado HttpParams
+  obtenerRandomContacts(num:number, sexo?:string):Observable<Results[]>{ //para usar diferentes opciones he importado HttpParams
 
     let opciones:HttpParams = new HttpParams().set("results",num); //Le seteamos algunas propiedades, como limitar el numero de results
+
+    if(sexo){
+      //opciones.set("gender",sexo);
+      opciones = opciones.append("gender",sexo);//los parametros, una vez que los hemos seteado podemos añadir nuevos, y tenemos que actualizarlo
+    }
 
     let url:string="https://randomuser.me/api"
 
@@ -47,6 +52,7 @@ export class RandomUserService {
 
   }
 
+  /*
   obtenerContactGenero(sexo:string):Observable<any>{
 
     let opciones:HttpParams = new HttpParams().set("gender",sexo); //Le seteamos algunas propiedades, como limitar el numero de results
@@ -58,5 +64,5 @@ export class RandomUserService {
       catchError(this.handleError)//Sacamos error si algo falla
     );
 
-  }
+  }*/
 }

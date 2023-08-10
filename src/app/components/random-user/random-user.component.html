@@ -1,11 +1,11 @@
-<h2>Random Contact</h2>
+
+<h1>Contacto Aleatorio</h1>
+<div class="container">
 
 <ng-container *ngIf="randomContact; else noContact">
-    <p *ngIf="randomContact">
-        {{randomContact.name.first}}
-        {{randomContact.location.street.number}}
-    </p>
+    
     <mat-card class="example-card">
+      
         <mat-card-header>
           <div mat-card-avatar>
             <img [src]="randomContact.picture.thumbnail" />
@@ -28,8 +28,8 @@
             </h2>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>YES</button><!--TODO cuando se de a si se guarda en una bbdd de contactos-->
-          <button mat-button>NO</button><!--TODO cuando se de a no se genera otro user aleatorio-->
+          <button mat-button (click)="guardarContacto()">YES</button><!--TODO cuando se de a si se guarda en una bbdd de contactos-->
+          <button mat-button (click)="obtenerNuevoContacto()">NO</button>
         </mat-card-actions>
       </mat-card>
 </ng-container>
@@ -38,5 +38,5 @@
     <mat-spinner></mat-spinner>
     <div *ngIf="showRandomContact">Cargando contacto aleatorio...</div>
 </ng-template>
-
+</div>
 

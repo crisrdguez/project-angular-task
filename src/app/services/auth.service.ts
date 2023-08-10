@@ -21,4 +21,25 @@ export class AuthService {
       return this.httpService.post('https://reqres.in/api/login',body);
 
   }
+
+  getIdToken(){
+    return sessionStorage.getItem('token');
+  }
+
+  estaLogueadoService(){
+    return sessionStorage.getItem('token');
+  }
+
+  /*logoutService(){
+    firebase.auth().signOut().then(()=>{
+
+      this.token='';
+
+      this.cookies.set("token",this.token);
+
+      this.router.navigate(['/']);
+
+      window.location.reload(); //actualiza la pagina
+    })
+  }*/
 }

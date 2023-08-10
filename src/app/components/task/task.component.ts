@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { ITask } from 'src/app/models/interfaces/Task.interface';
 
 @Component({
@@ -11,7 +12,7 @@ export class TaskComponent implements OnInit{
   @Input() task:ITask | undefined; //de padre a hijo
   @Output() deleteT: EventEmitter<ITask> = new EventEmitter<ITask>(); //de hijo a padre
 
-  constructor(){}
+  constructor(private router:Router){}
 
   ngOnInit(): void {
       
@@ -20,6 +21,10 @@ export class TaskComponent implements OnInit{
   deleteTask(){
     console.log("Eliminar tarea", this.task?.title);
     this.deleteT.emit(this.task);//Notificamos al componente superior la tarea a eliminar
+  }
+
+  volverHome(){
+    this.router.navigate([''])
   }
 
 }
